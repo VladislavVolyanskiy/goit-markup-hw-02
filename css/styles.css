@@ -188,9 +188,14 @@ body {
   opacity: 0.6;
 }
 
+.address-link {
+  opacity: 1;
+}
+
 .footer-contact-link:hover,
 .footer-contact-link:focus {
   opacity: 1;
+  color: var(--accent-color);
 }
 
 /* ------------PORTFOLIO-------------- */
