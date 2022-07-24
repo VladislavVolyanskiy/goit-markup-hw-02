@@ -1,11 +1,49 @@
 :root {
+  --primary-bnd-color: #ffffff;
+  --secondary-bnd-color: #f5f4fa;
+  --darker-bnd-color: #2f303a;
   --title-color: #212121;
   --item-text-color: #757575;
-
   --accent-color: #2196f3;
-
   --first-active-color: #2196f3;
   --second-active-color: #188ce8;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding-left: 0;
+}
+
+address {
+  font-style: normal;
+}
+
+a {
+  color: currentColor;
+}
+
+button {
+  font-family: inherit;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  /* расширяем кликабельную площадь кнопки*/
+  /* border: 1px solid transparent; */
+}
+
+img {
+  display: block;
 }
 
 body {
@@ -19,6 +57,24 @@ body {
 
 .link {
   text-decoration: none;
+  display: inline-block;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  /* width: 1200px; */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  /* outline: 2px solid red; */
+}
+
+.section {
+  padding-top: 94px;
+  padding-bottom: 94px;
+  background-color: var(--primary-bnd-color);
 }
 
 .visually-hidden {
@@ -38,21 +94,34 @@ body {
   font-weight: 700;
   font-size: 36px;
   line-height: 1.17;
-  /* text-align: center; */
+  text-align: center;
   letter-spacing: 0.03em;
   color: var(--title-color);
+  margin-bottom: 50px;
 }
 
 /* ------------HEADER-------------- */
+.header {
+  padding: 24px 0;
+  border-bottom: 1px solid #ececec;
+}
+
+.header > .container {
+  display: flex;
+  align-items: center;
+}
 
 .header-logo-text,
 .footer-logo-text {
+  display: inline-block;
   font-family: "Raleway", sans-serif;
   font-weight: 700;
   font-size: 26px;
   line-height: 1.19;
   letter-spacing: 0.03em;
   color: black;
+  margin-right: 93px;
+  /* outline: 2px solid tomato; */
 }
 
 .header-logo-text span,
@@ -65,13 +134,34 @@ body {
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
-  color: #212121;
+  color: var(--title-color);
+}
+
+.header-contact-list {
+  margin-left: auto;
+}
+
+.header .list {
+  display: flex;
+  gap: 50px;
+}
+
+/* другой способ задать расстояния между элементами списка */
+/* .menu-nav-item:not(:last-child) {
+  margin-right: 50px;
+} */
+
+.current {
+  color: var(--accent-color);
 }
 
 .menu-nav-link:hover,
 .menu-nav-link:focus {
   background-color: #ffffff;
   color: var(--accent-color);
+}
+
+.header-contact-list {
 }
 
 .header-contact-link {
@@ -91,8 +181,11 @@ body {
 
 /* ------------HERO-------------- */
 
-.hero {
-  background: #2f303a;
+.hero.section {
+  padding-top: 200px;
+  padding-bottom: 200px;
+  background: var(--darker-bnd-color);
+  text-align: center;
 }
 
 .hero-title {
@@ -100,14 +193,15 @@ body {
   font-weight: 900;
   font-size: 44px;
   line-height: 1.36;
-  text-align: center;
+  /* text-align: center; */
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #ffffff;
+  /* padding-top: 200px; */
+  margin-bottom: 30px;
 }
 
 .hero-btn {
-  font-family: inherit;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.88;
@@ -115,9 +209,10 @@ body {
   background-color: var(--first-active-color);
   border-color: var(--first-active-color);
   border-radius: 4px;
-  border-style: double;
+  text-align: inherit;
+  min-width: 200px;
+  padding: 8px 32px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  cursor: pointer;
 
   /* display: flex;
   align-items: center;
@@ -131,6 +226,22 @@ body {
 }
 
 /* ------------ADVANTAGES-------------- */
+.advantages.section {
+  padding-bottom: 0;
+}
+
+.advantages-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.advantages-item {
+  max-width: 270px;
+  flex-basis: 270px;
+}
+
 .advantages-item-title {
   font-weight: 700;
   font-size: 14px;
@@ -138,6 +249,7 @@ body {
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--title-color);
+  margin-bottom: 10px;
 }
 
 .advantages-item-text {
@@ -148,36 +260,62 @@ body {
   color: inherit;
 }
 
+/* ------------LINE OF WORK-------------- */
+
+.lineofwork-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
 /* ------------TEAM-------------- */
+.team.section {
+  background-color: var(--secondary-bnd-color);
+}
+
+.team-list {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.team-item {
+  background-color: var(--primary-bnd-color);
+  /* width: calc((100%-90px) / 4); */
+  max-width: 260 px;
+}
 
 .team-list-title {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.19;
-  /* text-align: center; */
+  text-align: center;
   letter-spacing: 0.03em;
   color: var(--title-color);
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 
 .team-list p {
   font-size: 16px;
   line-height: 19px;
-  /* text-align: center; */
+  text-align: center;
   letter-spacing: 0.03em;
   /* color: var(--item-text-color); */
   color: inherit;
+  margin-bottom: 30px;
 }
-/* ------------BASEMENT (FOOTER)-------------- */
+
+/* ------------FOOTER-------------- */
 
 .footer {
-  background-color: #2f303a;
+  background-color: var(--darker-bnd-color);
+  padding: 60px;
 }
 .footer-logo-text {
   color: #ffffff;
-}
-
-.footer-contacts {
-  font-style: normal;
+  margin-right: 0;
+  margin-bottom: 20px;
 }
 
 .footer-contact-link {
@@ -200,19 +338,26 @@ body {
 
 /* ------------PORTFOLIO-------------- */
 
+.filter-btn-list {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 50px;
+}
+
 .filter-btn {
   font-family: inherit;
-
   font-weight: 500;
   font-size: 16px;
   line-height: 1.62;
   text-align: center;
   letter-spacing: 0.03em;
   color: var(--title-color);
-  background-color: #f5f4fa;
-  border-color: #f5f4fa;
-  border-style: double;
+  background-color: var(--secondary-bnd-color);
+  border-color: var(--secondary-bnd-color);
+  border-style: solid;
   border-radius: 4px;
+  padding: 4px 22px;
   cursor: pointer;
 }
 
@@ -223,15 +368,40 @@ body {
   color: #ffffff;
 }
 
-.portfolio-item > h2 {
+.portfolio-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+
+  /*другой способ построения сетки*/
+  /* margin: -15px; */
+}
+
+.portfolio-item {
+  border: 1px solid;
+  border-color: #eeeeee;
+  width: calc((100% - 60px) / 3);
+  text-align: center;
+
+  /*другой способ построения сетки*/
+  /* width: calc(100% / 3 - 30px);
+  margin: 15px; */
+}
+
+.portfolio-item-text {
+  padding: 19px;
+}
+
+.portfolio-item h2 {
   font-weight: 700;
   font-size: 18px;
   line-height: 2;
   letter-spacing: 0.06em;
   color: var(--title-color);
+  margin-bottom: 4px;
 }
 
-.portfolio-item > p {
+.portfolio-item p {
   font-size: 16px;
   line-height: 1.88;
   letter-spacing: 0.03em;
